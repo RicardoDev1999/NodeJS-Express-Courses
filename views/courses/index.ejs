@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+<%- include(partials + 'head.ejs') %>
+
+<body>
+  <%- include(partials + 'nav.ejs') %>
+  <div class="container mt-4">
+
+    <% if (courses.length > 0) { %> 
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% courses.forEach(course => { %>
+          <tr class='course-row' data-doc="<%= course._id %>">
+            <td><%= course.name %></td>
+            <td><a class="course-delete btn btn-danger" role="button">Delete</a></td>
+            </tr>
+        <% }) %> 
+        </tbody>
+      </table>
+    <% } else { %>
+      <p>There are no courses to display...</p>
+    <% } %>
+
+    <div class="row ${1| ,row-cols-2,row-cols-3, auto,justify-content-md-center,|}">
+      <div class="col-12">
+          <a class="btn btn-primary" href="/courses/create" role="button">Add New</a>
+      </div>
+    </div>
+
+  <%- include(partials + 'scripts.ejs') %>
+  <script>
+    const deleteBtns = document.querySelectorAll('.course-row .course-delete');
+
+    deleteBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const row = btn.closest(".course-row");
+        const endpoint = `/courses/delete/${row.dataset.doc}`;
+        fetch(endpoint, {
+          method: 'DELETE'
+        })
+        .then(response => response.ok && row.remove())
+        .catch((err) => console.log(err));
+      });
+     });
+  </script>
+</body>
+
+</html>
