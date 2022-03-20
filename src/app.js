@@ -35,7 +35,7 @@ mongoose
   .connect(dbURI)
   .then(() => {
     console.log('Connected to db')
-    app.listen(port, () => console.log(`Running on https://localhost:${port}`))
+    app.listen(port, () => console.log(`Running on http://localhost:${port}`))
   })
   .catch((err) => console.log(err))
 

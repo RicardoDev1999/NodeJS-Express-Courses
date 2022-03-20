@@ -5,7 +5,7 @@
   "main": "./src/app.js",
   "type": "module",
   "scripts": {
-    "start": "node .src/app.js",
+    "start": "node ./src/app.js",
     "dev": "nodemon -e js,ejs --ignore public ./src/app.js",
     "lint": "eslint \"src/**/*.js\"",
     "format": "eslint \"src/**/*.js\" --fix"
@@ -47,10 +47,6 @@
     "eslint": "^8.11.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
-    "prettier": "^2.6.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.70.1",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^7.0.2"
+    "prettier": "^2.6.0"
   }
 }
