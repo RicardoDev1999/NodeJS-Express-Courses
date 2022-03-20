@@ -1,7 +1,7 @@
-const Course = require("../models/course");
-const Joi = require("joi");
+import {Course} from "../models/course.js";
+import Joi from "joi";
 
-const course_index = (req, res) =>
+export const course_index = (req, res) =>
   Course.find()
     .sort({ createdAt: -1 })
     .then((result) => {
@@ -9,9 +9,9 @@ const course_index = (req, res) =>
     })
     .catch((err) => console.log(err));
 
-const course_create_get = (req, res) => res.render("courses/create");
+export const course_create_get = (req, res) => res.render("courses/create");
 
-const course_create_post = (req, res) => {
+export const course_create_post = (req, res) => {
   const schema = Joi.object({
     name: Joi.string().min(3).required(),
   });
@@ -33,17 +33,10 @@ const course_create_post = (req, res) => {
     .catch((err) => console.log(err));
 };
 
-const course_delete = (req, res) => {
+export const course_delete = (req, res) => {
   Course.findByIdAndDelete(req.params.id)
     .then((result) => {
       res.status(200).send();
     })
     .catch((err) => res.status(500).send());
-};
-
-module.exports = {
-  course_index,
-  course_create_get,
-  course_create_post,
-  course_delete
 };

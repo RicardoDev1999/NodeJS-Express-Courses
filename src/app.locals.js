@@ -1,6 +1,7 @@
-const  path = require('path');
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
 
-module.exports = {
-    views: path.join(__dirname, '/views/'),
-    partials: path.join(__dirname, '/views/partials/')
-}
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+export const views = __dirname + '/views/'
+export const partials = __dirname + '/views/partials/'
