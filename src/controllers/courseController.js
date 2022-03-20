@@ -1,4 +1,4 @@
-import {Course} from "../models/course.js";
+import { Course } from "../models/course.js";
 import Joi from "joi";
 
 export const course_index = (req, res) =>

@@ -1,11 +1,23 @@
+import { router as courseRoutes } from './routes/courseRoutes.js'
 import express from 'express'
 import morgan from 'morgan'
 import mongoose from 'mongoose'
-import 'dotenv/config'
 import cors from 'cors'
-
-import { router as courseRoutes } from './routes/courseRoutes.js'
+import livereload from 'livereload'
+import connectLiveReload from 'connect-livereload'
 import * as locals from './app.locals.js'
+import 'dotenv/config'
+
+// live reload
+
+const liveReloadServer = livereload.createServer()
+liveReloadServer.watch(locals.liveReloadPublic);
+
+liveReloadServer.server.once('connection', () => {
+  setTimeout(() => {
+    liveReloadServer.refresh('/')
+  }, 100)
+})
 
 // express app
 const app = express()
@@ -18,6 +30,7 @@ const port = process.env.PORT || 3000
 // connect to mongodb
 const dbURI =
   'mongodb+srv://server-db-user:2CK8e06aQDjyvJCp@cluster0.gz81r.mongodb.net/NodeServer?retryWrites=true&w=majority'
+
 mongoose
   .connect(dbURI)
   .then(() => {
@@ -35,6 +48,7 @@ app.use(express.json())
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
+app.use(connectLiveReload())
 app.use(morgan('dev'))
 
 // index page
