@@ -10,6 +10,14 @@
     "lint": "eslint \"src/**/*.js\"",
     "format": "eslint \"src/**/*.js\" --fix"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": { 
+    "*.js": ["npm run format", "git add"]
+  },
   "keywords": [
     "nodejs",
     "express",
@@ -34,6 +42,8 @@
   },
   "devDependencies": {
     "eslint": "^8.11.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
     "prettier": "^2.6.0"
   }
 }
