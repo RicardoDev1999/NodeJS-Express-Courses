@@ -5,7 +5,8 @@
   "main": "./src/app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "rimraf dist",
+    "build": "rollup -c",
     "dev": "nodemon -e js,ejs --ignore public ./src/app.js",
     "lint": "eslint \"src/**/*.js\"",
     "format": "eslint \"src/**/*.js\" --fix"
@@ -15,8 +16,11 @@
       "pre-commit": "lint-staged"
     }
   },
-  "lint-staged": { 
-    "*.js": ["npm run format", "git add"]
+  "lint-staged": {
+    "*.js": [
+      "npm run format",
+      "git add"
+    ]
   },
   "keywords": [
     "nodejs",
@@ -44,6 +48,10 @@
     "eslint": "^8.11.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
-    "prettier": "^2.6.0"
+    "prettier": "^2.6.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.70.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }
