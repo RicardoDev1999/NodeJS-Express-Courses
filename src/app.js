@@ -1,4 +1,5 @@
 const express = require("express");
+const  path = require('path');
 const morgan = require("morgan"); 
 const mongoose = require('mongoose');
 const appLocals = require('./app.locals'); 
@@ -21,7 +22,8 @@ mongoose.connect(dbURI)
     .catch((err) => console.log(err)); 
 
 // register view engine
-app.set('view engine', 'ejs'); 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'));
 
 // middleware & static files
 app.use(express.json());

@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["nodejs", "express", "mongodb"],
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
   "author": "Ricardo Duarte",
   "license": "MIT",
   "dependencies": {
@@ -18,6 +22,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "eslint": "^8.11.0",
     "prettier": "2.6.0"
   }
 }
