@@ -5,8 +5,7 @@
   "main": "./src/app.js",
   "type": "module",
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "rollup -c",
+    "start": "node .src/app.js",
     "dev": "nodemon -e js,ejs --ignore public ./src/app.js",
     "lint": "eslint \"src/**/*.js\"",
     "format": "eslint \"src/**/*.js\" --fix"
