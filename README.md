@@ -27,6 +27,7 @@ To-do >
 - Add tests with JEST
 - Run tests in Circle CI before deploying
 - Add version control
+- Add code coverage
 
 Refs >
 
