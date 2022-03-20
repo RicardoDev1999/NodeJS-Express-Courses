@@ -6,7 +6,6 @@ import cors from 'cors'
 import livereload from 'livereload'
 import connectLiveReload from 'connect-livereload'
 import * as locals from './app.locals.js'
-import 'dotenv/config'
 
 // live reload
 
