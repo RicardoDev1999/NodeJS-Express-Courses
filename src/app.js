@@ -11,7 +11,7 @@ import 'dotenv/config'
 // live reload
 
 const liveReloadServer = livereload.createServer()
-liveReloadServer.watch(locals.liveReloadPublic);
+liveReloadServer.watch(locals.liveReloadPublic)
 
 liveReloadServer.server.once('connection', () => {
   setTimeout(() => {
