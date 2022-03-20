@@ -1,14 +1,17 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
-const Schema = mongoose.Schema; 
+const Schema = mongoose.Schema
 
-const courseSchema = new Schema({
+const courseSchema = new Schema(
+  {
     name: {
-        type: String,
-        required: true
-    }
-}, { timestamps: true }); 
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true }
+)
 
-const Course = mongoose.model('Course', courseSchema);
+const Course = mongoose.model('Course', courseSchema)
 
-export { Course };
+export { Course }

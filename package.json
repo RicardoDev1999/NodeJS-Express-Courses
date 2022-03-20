@@ -7,8 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon -e js,ejs --ignore public ./src/app.js",
-    "lint": "npx eslint src/*.js",
-    "lint-fix": "npx eslint src/*.js --fix"
+    "lint": "eslint \"src/**/*.js\"",
+    "format": "eslint \"src/**/*.js\" --fix"
   },
   "keywords": [
     "nodejs",
