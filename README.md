@@ -13,16 +13,20 @@ Stack >
 - EJS (View Engine)
 - Joi (Schema Validator)
 - MongoDB (Database, using Atlas as the server)
+- Nodemon + Sucrase (Compiling + Running)
 
 To-do > 
 
 - Replace EJS with Vue.JS 3 as view renderer.
 - Add tests with JEST
+- Add CI / CD
+- Add version control
 
 Refs >
 
 - https://github.com/sideway/joi
 - https://www.mongodb.com/cloud/atlas
+- https://dev.to/antoniel/how-to-set-up-nodemon-sucrase-31ic
 
 Tutorials > 
 
