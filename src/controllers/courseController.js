@@ -23,8 +23,10 @@ export const course_create_post = (req, res) => {
     return
   }
 
+  const { name } = req.body
+
   const newCourse = new Course({
-    name: req.body.name,
+    name: name,
   })
 
   newCourse

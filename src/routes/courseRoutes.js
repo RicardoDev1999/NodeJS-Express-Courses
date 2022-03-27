@@ -1,11 +1,12 @@
-import express from 'express'
+import { Router } from 'express'
+import { requireAuth } from '../middleware/authMiddleware.js'
 import * as courseController from '../controllers/courseController.js'
 
-const router = express.Router()
+const router = Router()
 
-router.get('/', courseController.course_index)
-router.get('/create', courseController.course_create_get)
-router.post('/create', courseController.course_create_post)
-router.delete('/delete/:id', courseController.course_delete)
+router.get('/', requireAuth, courseController.course_index)
+router.get('/create', requireAuth, courseController.course_create_get)
+router.post('/create', requireAuth, courseController.course_create_post)
+router.delete('/delete/:id', requireAuth, courseController.course_delete)
 
 export { router }

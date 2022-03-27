@@ -1,8 +1,6 @@
 import mongoose from 'mongoose'
 
-const Schema = mongoose.Schema
-
-const courseSchema = new Schema(
+const courseSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -12,6 +10,4 @@ const courseSchema = new Schema(
   { timestamps: true }
 )
 
-const Course = mongoose.model('Course', courseSchema)
-
-export { Course }
+export const Course = mongoose.model('Course', courseSchema)
